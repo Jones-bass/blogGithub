@@ -10,6 +10,7 @@ export const defaultTheme = {
   post: '#112131',
 
   profile: '#0B1B2B',
+  layout: '#0D233B',
   background: '#071422',
   input: '#040F1A',
 } as const

@@ -4,4 +4,6 @@ export const ContentIcon = styled.div`
   display: flex;
   gap: 0.75rem;
   align-items: center;
+  text-decoration: none;
+  color: white;
 `

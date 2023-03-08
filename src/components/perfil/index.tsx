@@ -1,7 +1,9 @@
-import { Container, ContainerImg, ContainerText, Icon } from './styles'
 import { BsGithub } from 'react-icons/bs'
 
 import { IconList } from '../../components/IconList'
+import { Link } from 'react-router-dom'
+
+import { Container, ContainerImg, ContainerText, Icon } from './styles'
 
 interface PerfilProps {
   image: string
@@ -18,8 +20,12 @@ export function Perfil({ image, name, bio }: PerfilProps) {
         <h1>{name}</h1>
         <p>{bio}</p>
         <Icon>
-          <IconList Icon={<BsGithub size={16} />} titleIcon="cameronwll" />
-          <IconList Icon={<BsGithub size={16} />} titleIcon="Rocketseat" />
+          <Link style={{ textDecoration: 'none' }} to="/posts">
+            <IconList Icon={<BsGithub size={16} />} titleIcon="Posts" />
+          </Link>
+          <Link style={{ textDecoration: 'none' }} to="/repositories">
+            <IconList Icon={<BsGithub size={16} />} titleIcon="Reposities" />
+          </Link>
           <IconList Icon={<BsGithub size={16} />} titleIcon="32 seguidores" />
         </Icon>
       </ContainerText>
