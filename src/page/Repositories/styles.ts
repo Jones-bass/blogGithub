@@ -1,10 +1,6 @@
 import styled from 'styled-components'
 
 export const ContainerRepo = styled.div`
-  width: 100%;
-  padding: 20px;
-
-  h1 {
-    margin-bottom: 16px;
-  }
+  margin-top: 30px;
+  padding: 40px;
 `

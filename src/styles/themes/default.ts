@@ -13,4 +13,7 @@ export const defaultTheme = {
   layout: '#0D233B',
   background: '#071422',
   input: '#040F1A',
+
+  green100: '#00B37E',
+  green300: '#015F43',
 } as const

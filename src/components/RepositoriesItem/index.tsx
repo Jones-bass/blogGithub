@@ -17,13 +17,15 @@ export function RepositoryItem({
       <strong>{name}</strong>
       <p>{description}</p>
 
-      <Link
-        style={{ textDecoration: 'none', color: 'white' }}
-        to={htmlurl}
-        target="_blank"
-      >
-        Acessar Repositorio
-      </Link>
+      <button>
+        <Link
+          style={{ textDecoration: 'none', color: 'white' }}
+          to={htmlurl}
+          target="_blank"
+        >
+          Acessar Repositorio
+        </Link>
+      </button>
     </ContainerList>
   )
 }

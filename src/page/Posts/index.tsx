@@ -1,11 +1,19 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { Perfil } from '../../components/perfil'
 
 export function Posts() {
+  const navigate = useNavigate()
+
+  function handleLogin() {
+    // Lógica de autenticação do usuário
+    navigate('/')
+  }
   return (
     <div>
-      <Link style={{ textDecoration: 'none', color: 'white' }} to="/">
-        Voltar
-      </Link>
+      <Perfil
+        name="JavaScript data types and data structures"
+        onClick={handleLogin}
+      />
     </div>
   )
 }
