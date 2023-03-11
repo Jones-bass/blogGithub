@@ -2,20 +2,24 @@ import styled from 'styled-components'
 
 export const ContainerList = styled.div`
   background-color: ${(props) => props.theme.border};
-  max-width: 16rem;
-  border-radius: 0.1rem 1rem 0.1rem 1rem;
-  padding: 1rem;
-  margin-bottom: 2.625rem;
+
+  box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+
+  border-radius: 0.8rem;
+  padding: 2rem;
+  margin-bottom: 10rem;
+
+  width: 80%;
+  height: 90%;
 
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
 
-  position: relative;
+  flex-direction: column;
+  margin: auto;
 
   strong {
-    font-size: 2rem;
+    font-size: 1.2rem;
 
     text-align: center;
   }
@@ -36,6 +40,12 @@ export const ContainerList = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 20rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
 
     transition: 0.3s;
 

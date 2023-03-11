@@ -1,9 +1,15 @@
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Perfil } from '../../components/perfil'
-import { RepositoryItem } from '../../components/RepositoriesItem'
+import {
+  RepositoryItem,
+  RepositoryItemPropos,
+} from '../../components/RepositoriesItem'
 import { ContainerRepo } from './styles'
 
 export function Repositories() {
+  const [repositories, setRepositories] = useState<RepositoryItemPropos[]>([])
+
   const navigate = useNavigate()
 
   function handleLogin() {
@@ -11,30 +17,21 @@ export function Repositories() {
     navigate('/')
   }
 
+  useEffect(() => {
+    fetch('http://api.github.com/users/jones-bass/repos')
+      .then((response) => response.json())
+      .then((data) => setRepositories(data))
+  }, [])
+
   return (
     <>
       <Perfil name="Meus Repositórios" onClick={handleLogin} />
       <ContainerRepo>
-        <RepositoryItem
-          name="allCopier"
-          description="teste"
-          htmlurl="https://github.com/Jones-bass/allCopier"
-        />
-        <RepositoryItem
-          name="allCopier"
-          description="teste"
-          htmlurl="https://github.com/Jones-bass/allCopier"
-        />
-        <RepositoryItem
-          name="allCopier"
-          description="teste"
-          htmlurl="https://github.com/Jones-bass/allCopier"
-        />
-        <RepositoryItem
-          name="allCopier"
-          description="teste"
-          htmlurl="https://github.com/Jones-bass/allCopier"
-        />
+        {repositories.map((repository) => {
+          return (
+            <RepositoryItem key={repository.name} repository={repository} />
+          )
+        })}
       </ContainerRepo>
     </>
   )

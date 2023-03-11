@@ -1,26 +1,26 @@
 import { Link } from 'react-router-dom'
 import { ContainerList } from './styles'
 
-interface RepositoryItemPropos {
+export interface RepositoryItemPropos {
   name: string
   description: string
-  htmlurl: string
+  html_url: string
 }
 
-export function RepositoryItem({
-  name,
-  description,
-  htmlurl,
-}: RepositoryItemPropos) {
+interface RepositoryProps {
+  repository: RepositoryItemPropos
+}
+
+export function RepositoryItem({ repository }: RepositoryProps) {
   return (
     <ContainerList>
-      <strong>{name}</strong>
-      <p>{description}</p>
+      <strong>{repository.name}</strong>
+      <p>{repository.description}</p>
 
       <button>
         <Link
           style={{ textDecoration: 'none', color: 'white' }}
-          to={htmlurl}
+          to={repository.html_url}
           target="_blank"
         >
           Acessar Repositorio

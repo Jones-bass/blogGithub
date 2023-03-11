@@ -55,6 +55,7 @@ export const ContainerText = styled.div`
 
     span {
       display: flex;
+      cursor: pointer;
 
       font-size: clamp(0.5rem, 1vw, 1rem);
       align-items: center;
