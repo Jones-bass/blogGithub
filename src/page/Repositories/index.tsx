@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Loading } from '../../components/Loading'
 import { Perfil } from '../../components/perfil'
 import {
   RepositoryItem,
   RepositoryItemPropos,
 } from '../../components/RepositoriesItem'
+import { api } from '../../service/api'
 import { ContainerRepo } from './styles'
 
 export function Repositories() {
-  const [repositories, setRepositories] = useState<RepositoryItemPropos[]>([])
+  const [loading, setLoading] = useState(true)
+
+  const [dados, setDados] = useState<RepositoryItemPropos[]>([])
 
   const navigate = useNavigate()
 
@@ -18,16 +22,38 @@ export function Repositories() {
   }
 
   useEffect(() => {
-    fetch('http://api.github.com/users/jones-bass/repos')
-      .then((response) => response.json())
-      .then((data) => setRepositories(data))
+    async function loadDados() {
+      setLoading(true)
+      try {
+        const response = await api.get('/users/jones-bass/repos')
+
+        const data = await response.data
+
+        setDados(data)
+      } catch (error) {
+        alert('Erro ao exibir slider de produtos, tente novamente mais tarde.')
+
+        setLoading(false)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadDados()
   }, [])
+
+  if (loading) {
+    return <Loading />
+  }
 
   return (
     <>
-      <Perfil name="Meus Repositórios" onClick={handleLogin} />
+      <Perfil
+        name="Meus Repositórios"
+        onClick={handleLogin}
+        variant="secundary"
+      />
       <ContainerRepo>
-        {repositories.map((repository) => {
+        {dados.map((repository) => {
           return (
             <RepositoryItem key={repository.name} repository={repository} />
           )

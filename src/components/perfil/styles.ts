@@ -1,32 +1,48 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export const Container = styled.div`
+interface ContainerProps {
+  variant: string
+}
+
+export const Main = styled.main`
+  width: 100%;
+`
+
+export const Container = styled.div<ContainerProps>`
   display: flex;
   width: 65%;
+  height: 200px;
+
   margin: auto;
   margin-top: -70px;
 
   padding: 35px;
 
+  align-items: flex-start;
+
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-
   background-color: ${(props) => props.theme.profile};
 
   > img {
     width: 20%;
-    height: 20%;
+    height: 100%;
 
     border-radius: 8px;
   }
+
+  ${({ variant }) =>
+    variant !== 'primary' &&
+    css`
+      padding: 70px 0px 0px 20px;
+    `}
 `
 
 export const ContainerText = styled.div`
-  margin: 10px;
+  margin: 0px 0px 0px 20px;
   width: 100%;
 
   h1 {
-    margin-top: 10px;
     font-weight: 700;
 
     font-size: clamp(1rem, 2vw, 2rem);
@@ -46,9 +62,9 @@ export const ContainerText = styled.div`
   }
 
   .div {
-    width: 56%;
+    width: 59%;
     position: absolute;
-    top: 260px;
+    top: 240px;
     display: flex;
     justify-content: space-between;
     color: ${(props) => props.theme.blue};

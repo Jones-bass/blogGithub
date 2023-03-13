@@ -13,6 +13,7 @@ export function Posts() {
       <Perfil
         name="JavaScript data types and data structures"
         onClick={handleLogin}
+        variant="secundary"
       />
     </div>
   )

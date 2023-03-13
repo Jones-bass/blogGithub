@@ -2,7 +2,6 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
 
-
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 } 
 
 body {
-  background-color: ${(props) => props.theme.background};
+  background: ${(props) => props.theme.background};
 }
 
 body, input, textarea, button {
@@ -19,24 +18,9 @@ body, input, textarea, button {
   color: ${(props) => props.theme.title};
 }
 
-.wrapper {
-  max-width: 70rem;
-  margin: 2rem auto;
-  padding: 0 1rem;
-
-  display: grid;
-  grid-template-columns: 256px 1fr;
-  gap: 2rem;
-  align-items: flex-start;
-}
-
 @media (max-width: 768px) {
   html {
     font-size: 87.5%;
-  }
-  
-  .wrapper {
-    grid-template-columns: 1fr;
   }
 }
 `

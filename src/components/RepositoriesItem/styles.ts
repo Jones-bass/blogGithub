@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ContainerList = styled.div`
-  background-color: ${(props) => props.theme.border};
+  background-color: ${(props) => props.theme.profile};
 
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.4);
   border-radius: 10px;
