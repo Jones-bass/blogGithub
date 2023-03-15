@@ -35,6 +35,10 @@ export const Container = styled.div<ContainerProps>`
     variant !== 'primary' &&
     css`
       padding: 70px 0px 0px 20px;
+
+      .div {
+        margin-top: 1rem;
+      }
     `}
 `
 

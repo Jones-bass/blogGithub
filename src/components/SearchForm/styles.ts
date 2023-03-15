@@ -25,11 +25,11 @@ export const SearchFormContainer = styled.form`
     align-items: center;
     gap: 0.75rem;
 
+    background: ${(props) => props.theme.input};
+    color: ${(props) => props.theme.Text};
+
     border: 0;
     padding: 1rem;
-    background: transparent;
-    border: 1px solid ${(props) => props.theme.border};
-    color: ${(props) => props.theme.blue};
     font-weight: bold;
     border-radius: 6px;
     cursor: pointer;
@@ -40,10 +40,8 @@ export const SearchFormContainer = styled.form`
     }
 
     &:not(:disabled):hover {
-      background: ${(props) => props.theme.input};
-      border: 1px solid ${(props) => props.theme.Subtitle};
-      color: ${(props) => props.theme.Text};
-      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+      background: transparent;
+      color: ${(props) => props.theme.blue};
     }
   }
 `

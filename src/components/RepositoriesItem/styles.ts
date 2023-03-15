@@ -1,22 +1,16 @@
 import styled from 'styled-components'
 
 export const ContainerList = styled.div`
-  background-color: ${(props) => props.theme.profile};
+  background-color: ${(props) => props.theme.post};
+  border-radius: 8px;
 
-  box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
+  text-align: center;
 
-  border-radius: 0.8rem;
-  padding: 2rem;
-  margin-bottom: 10rem;
-
-  width: 80%;
+  width: 95%;
   height: 90%;
 
-  display: flex;
-
-  flex-direction: column;
   margin: auto;
+  padding: 5rem 0rem 5rem 0rem;
 
   strong {
     font-size: 1.2rem;
