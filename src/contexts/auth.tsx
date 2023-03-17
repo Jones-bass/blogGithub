@@ -5,17 +5,26 @@ import {
   useEffect,
   useState,
 } from 'react'
-import { apiFetch } from '../service/apiFetch'
+import { api } from '../service/api'
 
-interface GithubProps {
-  id: number
-  description: string
-  date: string
+export interface PostCardProps {
   title: string
+  body: string
+  created_at: string
+  number: string
+}
+
+export interface PostGit {
+  title: string
+  comments: number
+  createdAt: string
+  githubUsername: string
+  url: string
+  body: string
 }
 
 interface IAuthContext {
-  githubContent: GithubProps[]
+  githubContent: PostCardProps[]
   fetchGithub: (query: string) => Promise<void>
 }
 
@@ -28,22 +37,22 @@ export const AuthContext = createContext({} as IAuthContext)
 export const AuthContextProvider = ({
   children,
 }: IAuthContextProviderProps) => {
-  const [githubContent, setGithubContent] = useState<GithubProps[]>([])
+  const [postsCountTotal, setPostsCountTotal] = useState(0)
+  const [githubContent, setGithubContent] = useState<PostCardProps[]>(
+    [] as PostCardProps[],
+  )
 
   const fetchGithub = useCallback(async (query?: string) => {
-    const response = await apiFetch.get('github', {
-      params: {
-        _sort: 'createdAt',
-        _order: 'desc',
-        q: query,
-      },
-    })
+    const response = await api.get(
+      `search/issues?q=${query}is:issue%20is:open%20repo:jones-bass/bloggithub`,
+    )
 
-    setGithubContent(response.data)
+    setGithubContent(response.data.items)
+    setPostsCountTotal(response.data.total_count)
   }, [])
 
   useEffect(() => {
-    fetchGithub()
+    fetchGithub('')
   }, [fetchGithub])
 
   return (
