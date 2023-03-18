@@ -46,5 +46,11 @@ export const ContainerList = styled.div`
     &:hover {
       background: ${(props) => props.theme.green300};
     }
+
+    a {
+      text-decoration: none;
+      color: white;
+      font-size: large;
+    }
   }
 `

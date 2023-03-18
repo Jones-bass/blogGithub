@@ -18,11 +18,7 @@ export function RepositoryItem({ repository }: RepositoryProps) {
       <p>{repository.description}</p>
 
       <button>
-        <Link
-          style={{ textDecoration: 'none', color: 'white' }}
-          to={repository.html_url}
-          target="_blank"
-        >
+        <Link to={repository.html_url} target="_blank">
           Acessar Repositorio
         </Link>
       </button>

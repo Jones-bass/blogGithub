@@ -20,13 +20,13 @@ export const CardText = styled.div`
   justify-content: space-between;
 
   span {
-    font-size: 14px;
+    font-size: 0.6;
     color: ${(props) => props.theme.span};
   }
 
   h1 {
     color: ${(props) => props.theme.title};
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     width: 70%;
     margin-bottom: 1rem;
   }

@@ -16,8 +16,7 @@ export function Repositories() {
 
   const navigate = useNavigate()
 
-  function handleLogin() {
-    // Lógica de autenticação do usuário
+  const handleLogin = () => {
     navigate('/')
   }
 
@@ -47,11 +46,7 @@ export function Repositories() {
 
   return (
     <>
-      <Perfil
-        name="Meus Repositórios"
-        onClick={handleLogin}
-        variant="secundary"
-      />
+      <Perfil onClick={handleLogin} variant="secundary" />
       <ContainerRepo>
         {dados.map((repository) => {
           return (

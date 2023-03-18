@@ -34,10 +34,12 @@ export const Container = styled.div<ContainerProps>`
   ${({ variant }) =>
     variant !== 'primary' &&
     css`
-      padding: 70px 0px 0px 20px;
-
+      padding: 50px 15px 15px 20px;
       .div {
-        margin-top: 1rem;
+        margin-top: 0.5rem;
+      }
+      img {
+        display: none;
       }
     `}
 `
@@ -85,8 +87,24 @@ export const ContainerText = styled.div`
   }
 `
 
-export const Icon = styled.div`
-  width: 100%;
+export const IconContainer = styled.div`
+  width: 60%;
   display: flex;
-  gap: 1.25rem;
+  gap: 0.8rem;
+`
+export const IconContent = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: ${(props) => props.theme.title};
+
+  a {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    text-decoration: none;
+    color: ${(props) => props.theme.title};
+  }
 `

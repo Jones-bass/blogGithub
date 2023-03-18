@@ -1,5 +1,20 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  background-color: red;
+  width: 60%;
+  margin: auto;
+  margin-top: 2rem;
+
+  p {
+    color: ${(props) => props.theme.Subtitle};
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-align: justify;
+  }
+
+  img {
+    margin-top: 2rem;
+    max-width: 100%;
+  }
 `

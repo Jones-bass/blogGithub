@@ -1,28 +1,51 @@
+import { useCallback, useEffect, useState } from 'react'
 import { BsGithub, BsArrowLeftShort, BsBoxArrowUpRight } from 'react-icons/bs'
 
-import { IconList } from '../../components/IconList'
 import { Link } from 'react-router-dom'
-import { Main, Container, ContainerText, Icon } from './styles'
+import { api } from '../../service/api'
+import {
+  Main,
+  Container,
+  ContainerText,
+  IconContainer,
+  IconContent,
+} from './styles'
 
 interface PerfilProps {
-  image?: string
-  name: string
-  bio?: string
+  followers?: number
+  description?: string
+  name?: string
+
   variant?: string
+
+  imgUrl?: string
+
   onClick?: () => void
 }
 
-export function Perfil({
-  image,
-  name,
-  bio,
-  onClick,
-  variant = 'primary',
-}: PerfilProps) {
+export function Perfil({ name, onClick, variant = 'primary' }: PerfilProps) {
+  const [userInfo, setUserInfo] = useState<PerfilProps>()
+
+  const fetchUsers = useCallback(async () => {
+    const response = await api.get('users/jones-bass')
+    const { name, followers, avatar_url: avatarUrl, bio } = response.data
+    const newObjectUsers = {
+      name,
+      followers,
+      imgUrl: avatarUrl,
+      description: bio,
+    }
+    setUserInfo(newObjectUsers)
+  }, [])
+
+  useEffect(() => {
+    fetchUsers()
+  }, [fetchUsers])
+
   return (
     <Main>
       <Container variant={variant}>
-        {image && <img src={image} alt={name} />}
+        <img src={userInfo?.imgUrl} alt="alt" />
         <ContainerText>
           <div className="div">
             {onClick && (
@@ -46,17 +69,26 @@ export function Perfil({
               </Link>
             )}
           </div>
-          <h1>{name}</h1>
-          <p>{bio}</p>
-          <Icon>
-            <Link style={{ textDecoration: 'none' }} to="/posts">
-              <IconList Icon={<BsGithub />} titleIcon="Posts" />
-            </Link>
-            <Link style={{ textDecoration: 'none' }} to="/repositories">
-              <IconList Icon={<BsGithub />} titleIcon="Reposities" />
-            </Link>
-            <IconList Icon={<BsGithub />} titleIcon="32 seguidores" />
-          </Icon>
+          <h1>{userInfo?.name}</h1>
+          <p>{userInfo?.description}</p>
+          <IconContainer>
+            <IconContent>
+              <BsGithub />
+              {userInfo?.name}
+            </IconContent>
+
+            <IconContent>
+              <Link to="/repositories">
+                <BsGithub />
+                Reposities
+              </Link>
+            </IconContent>
+
+            <IconContent>
+              <BsGithub />
+              32 seguidores
+            </IconContent>
+          </IconContainer>
         </ContainerText>
       </Container>
     </Main>
