@@ -9,6 +9,14 @@ export const CardPost = styled(NavLink)`
   margin: 1rem;
   padding: 2rem;
 
+  transition: 0.5s ease-in-out;
+
+  :hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    box-shadow: 0px 0px 10px 0.6px ${(props) => props.theme.blue};
+  }
+
   p {
     font-size: 1rem;
     color: ${(props) => props.theme.Text};

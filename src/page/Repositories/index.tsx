@@ -24,7 +24,12 @@ export function Repositories() {
     async function loadDados() {
       setLoading(true)
       try {
-        const response = await api.get('/users/jones-bass/repos')
+        const response = await api.get('/users/jones-bass/repos', {
+          params: {
+            _sort: 'createdAt',
+            _order: 'desc',
+          },
+        })
 
         const data = await response.data
 

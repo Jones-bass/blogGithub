@@ -75,6 +75,10 @@ export const ContainerText = styled.div`
     justify-content: space-between;
     color: ${(props) => props.theme.blue};
 
+    > a {
+      color: ${(props) => props.theme.blue};
+    }
+
     span {
       display: flex;
       cursor: pointer;
@@ -104,7 +108,6 @@ export const IconContent = styled.div`
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    text-decoration: none;
     color: ${(props) => props.theme.title};
   }
 `

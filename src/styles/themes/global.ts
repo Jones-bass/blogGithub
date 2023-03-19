@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import img from '../../assets/background.png'
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -10,6 +11,13 @@ export const GlobalStyle = createGlobalStyle`
 
 body {
   background: ${(props) => props.theme.background};
+  background-image: url(${img});    
+  background-size: cover;
+  background-repeat: no-repeat; 
+}
+
+a {
+  text-decoration: none;
 }
 
 body, input, textarea, button {

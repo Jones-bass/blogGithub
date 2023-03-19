@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { BsGithub, BsArrowLeftShort, BsBoxArrowUpRight } from 'react-icons/bs'
+import { FaUserFriends, FaArchive } from 'react-icons/fa'
 
 import { Link } from 'react-router-dom'
 import { api } from '../../service/api'
@@ -15,11 +16,8 @@ interface PerfilProps {
   followers?: number
   description?: string
   name?: string
-
   variant?: string
-
   imgUrl?: string
-
   onClick?: () => void
 }
 
@@ -55,15 +53,7 @@ export function Perfil({ name, onClick, variant = 'primary' }: PerfilProps) {
               </span>
             )}
             {onClick && (
-              <Link
-                to="https://github.com/Jones-bass"
-                target="_blank"
-                style={{
-                  color: '#3294F8',
-                  textDecoration: 'none',
-                  fontSize: '14px',
-                }}
-              >
+              <Link to="https://github.com/Jones-bass" target="_blank">
                 VER NO GITHUB {'\u00A0'}
                 <BsBoxArrowUpRight size={12} />
               </Link>
@@ -79,14 +69,14 @@ export function Perfil({ name, onClick, variant = 'primary' }: PerfilProps) {
 
             <IconContent>
               <Link to="/repositories">
-                <BsGithub />
-                Reposities
+                <FaArchive />
+                Repositories
               </Link>
             </IconContent>
 
             <IconContent>
-              <BsGithub />
-              32 seguidores
+              <FaUserFriends size={20} />
+              {userInfo?.followers} Seguidores
             </IconContent>
           </IconContainer>
         </ContainerText>

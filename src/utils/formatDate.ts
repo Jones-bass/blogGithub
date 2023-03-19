@@ -1,1 +1,1 @@
-export const formatDate = new Intl.DateTimeFormat('en-BR')
+export const formatDate = new Intl.DateTimeFormat('ptBR')

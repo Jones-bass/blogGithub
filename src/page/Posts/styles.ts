@@ -12,6 +12,9 @@ export const Container = styled.div`
     line-height: 1.5rem;
     text-align: justify;
   }
+  h3 {
+    color: ${(props) => props.theme.blue};
+  }
 
   img {
     margin-top: 2rem;

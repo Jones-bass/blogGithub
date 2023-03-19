@@ -14,6 +14,7 @@ export function Card({ item }: IPostCard) {
     locale: ptBR,
     addSuffix: true,
   })
+
   return (
     <CardPost to={`/${number}`}>
       <CardText>

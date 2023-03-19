@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import img from '../../assets/Background.png'
+import img from '../../assets/backgroundHeader.png'
 
 export const LayoutContainer = styled.div`
   max-width: 100%;

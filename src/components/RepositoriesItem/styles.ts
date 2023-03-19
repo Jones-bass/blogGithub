@@ -1,56 +1,67 @@
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
+import git from '../../assets/git.png'
 
-export const ContainerList = styled.div`
-  background-color: ${(props) => props.theme.post};
-  border-radius: 8px;
+export const ContainerList = styled(NavLink)`
+  position: relative;
+  font-family: sans-serif;
+  text-decoration: none;
+  padding: 0.5rem;
+  color: ${(props) => props.theme.Text};
 
-  text-align: center;
+  &::before {
+    content: '';
+    background-image: url(${git});
+    background-size: cover;
 
-  width: 95%;
-  height: 90%;
-
-  margin: auto;
-  padding: 5rem 0rem 5rem 0rem;
-
-  strong {
-    font-size: 1.2rem;
-
-    text-align: center;
+    position: absolute;
   }
 
-  p {
-    font-size: 1rem;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  &::before {
+    width: 5rem;
+    height: 5rem;
+    top: 35%;
+    right: 10%;
   }
 
-  button {
-    cursor: pointer;
-    border: 0;
-    border-radius: 8px;
-    padding: 8px;
-    background: ${(props) => props.theme.green100};
+  &::after {
+    content: '';
+    position: absolute;
+    height: 2rem;
+    top: 15%;
+    right: 7%;
+    border: 1px solid;
+  }
+`
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+export const BoxCard = styled.div`
+  width: 28em;
+  height: 10em;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.222);
 
-    width: 20rem;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: auto;
+  transition: all ease 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-    transition: 0.3s;
+  &:hover {
+    box-shadow: 0px 0px 10px 0.6px ${(props) => props.theme.blue};
+  }
 
-    &:hover {
-      background: ${(props) => props.theme.green300};
-    }
+  h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+  }
 
-    a {
-      text-decoration: none;
-      color: white;
-      font-size: large;
+  span {
+    font-size: 0.7rem;
+    font-weight: 300;
+
+    &:nth-child(3) {
+      font-weight: 500;
+      margin-right: 0.2rem;
     }
   }
 `
