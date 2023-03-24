@@ -1,18 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Loading } from '../../components/Loading'
 import { Perfil } from '../../components/perfil'
-import {
-  RepositoryItem,
-  RepositoryItemPropos,
-} from '../../components/RepositoriesItem'
-import { api } from '../../service/api'
+import { RepositoryItem } from '../../components/RepositoriesItem'
+import { FetchContext } from '../../contexts/FetchContext'
 import { ContainerRepo } from './styles'
 
 export function Repositories() {
-  const [loading, setLoading] = useState(true)
-
-  const [dados, setDados] = useState<RepositoryItemPropos[]>([])
+  const { dados, loading, loadDados } = useContext(FetchContext)
 
   const navigate = useNavigate()
 
@@ -21,28 +16,8 @@ export function Repositories() {
   }
 
   useEffect(() => {
-    async function loadDados() {
-      setLoading(true)
-      try {
-        const response = await api.get('/users/jones-bass/repos', {
-          params: {
-            _sort: 'createdAt',
-            _order: 'desc',
-          },
-        })
-
-        const data = await response.data
-
-        setDados(data)
-      } catch (error) {
-        alert('Erro ao exibir slider de produtos, tente novamente mais tarde.')
-
-        setLoading(false)
-      } finally {
-        setLoading(false)
-      }
-    }
-    loadDados()
+    loadDados('/users/jones-bass/repos')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (loading) {

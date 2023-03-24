@@ -75,7 +75,7 @@ export function Perfil({ name, onClick, variant = 'primary' }: PerfilProps) {
             </IconContent>
 
             <IconContent>
-              <FaUserFriends size={20} />
+              <FaUserFriends />
               {userInfo?.followers} Seguidores
             </IconContent>
           </IconContainer>

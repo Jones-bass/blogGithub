@@ -1,11 +1,34 @@
 import styled from 'styled-components'
 
+export const FormContainer = styled.div`
+  width: 65%;
+  margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+
+  .containerText {
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    color: ${(props) => props.theme.Text};
+  }
+
+  @media (max-width: 720px) {
+    width: 80%;
+
+    h3 {
+      font-size: 1rem;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+  }
+`
 export const SearchFormContainer = styled.form`
-  padding: 40px;
   display: flex;
   gap: 1rem;
-  width: 71%;
-  margin: auto;
 
   input {
     flex: 1;
@@ -42,6 +65,11 @@ export const SearchFormContainer = styled.form`
     &:not(:disabled):hover {
       background: transparent;
       color: ${(props) => props.theme.blue};
+    }
+
+    @media (max-width: 720px) {
+      gap: 0rem;
+      width: 5rem;
     }
   }
 `

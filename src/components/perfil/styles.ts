@@ -24,11 +24,25 @@ export const Container = styled.div<ContainerProps>`
   border-radius: 10px;
   background-color: ${(props) => props.theme.profile};
 
+  @media (max-width: 720px) {
+    padding: 35px 15px 0px 0px;
+    margin-top: -2rem;
+    width: 80%;
+    height: 150px;
+  }
+
   > img {
     width: 20%;
     height: 100%;
 
     border-radius: 8px;
+
+    @media (max-width: 720px) {
+      width: 20%;
+      height: 40%;
+      margin-top: 1rem;
+      margin-left: 0.5rem;
+    }
   }
 
   ${({ variant }) =>
@@ -88,6 +102,11 @@ export const ContainerText = styled.div`
       text-align: center;
       color: ${(props) => props.theme.blue};
     }
+
+    @media (max-width: 720px) {
+      margin-top: -1rem;
+      width: 68%;
+    }
   }
 `
 
@@ -95,6 +114,11 @@ export const IconContainer = styled.div`
   width: 60%;
   display: flex;
   gap: 0.8rem;
+
+  @media (max-width: 720px) {
+    width: 100%;
+    gap: 0.5rem;
+  }
 `
 export const IconContent = styled.div`
   width: 100%;
@@ -109,5 +133,15 @@ export const IconContent = styled.div`
     gap: 0.5rem;
     align-items: center;
     color: ${(props) => props.theme.title};
+  }
+
+  @media (max-width: 720px) {
+    display: flex;
+    gap: 0.2rem;
+    font-size: 0.72rem;
+
+    a {
+      gap: 0.2rem;
+    }
   }
 `

@@ -1,12 +1,13 @@
+import { useContext } from 'react'
 import { Card } from '../../components/Card'
 import { Perfil } from '../../components/perfil'
 import { SearchForm } from '../../components/SearchForm'
-import { useAuth } from '../../hooks/useAuth'
+import { FetchContext } from '../../contexts/FetchContext'
 
 import { ContainerMain, ContainerPost } from './styles'
 
 export function Home() {
-  const { githubContent } = useAuth()
+  const { githubContent } = useContext(FetchContext)
 
   return (
     <ContainerMain>

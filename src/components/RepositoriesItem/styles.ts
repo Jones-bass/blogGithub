@@ -29,15 +29,31 @@ export const ContainerList = styled(NavLink)`
     position: absolute;
     height: 2rem;
     top: 15%;
-    right: 7%;
+    right: 5%;
     border: 1px solid;
+  }
+
+  @media (max-width: 720px) {
+    &::before {
+      width: 2.5rem;
+      height: 2.5rem;
+      top: 45%;
+      right: 10%;
+    }
+
+    &::after {
+      height: 1rem;
+      top: 20%;
+      right: 5%;
+      border: 1px solid;
+    }
   }
 `
 
 export const BoxCard = styled.div`
-  width: 28em;
-  height: 10em;
-  padding: 1.5rem;
+  width: 26rem;
+  height: 10rem;
+  padding: 1.2rem;
   border: 1px solid rgba(255, 255, 255, 0.222);
 
   transition: all ease 0.3s;
@@ -49,10 +65,22 @@ export const BoxCard = styled.div`
     box-shadow: 0px 0px 10px 0.6px ${(props) => props.theme.blue};
   }
 
+  @media (max-width: 720px) {
+    width: 20em;
+    height: 6em;
+    padding: 1rem;
+  }
+
   h1 {
     font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 720px) {
+    h1 {
+      font-size: 1rem;
+    }
   }
 
   span {
@@ -62,6 +90,10 @@ export const BoxCard = styled.div`
     &:nth-child(3) {
       font-weight: 500;
       margin-right: 0.2rem;
+    }
+
+    @media (max-width: 720px) {
+      font-size: 0.5rem;
     }
   }
 `

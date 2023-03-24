@@ -6,8 +6,8 @@ export const CardPost = styled(NavLink)`
   border-radius: 8px;
   text-decoration: none;
 
-  margin: 1rem;
-  padding: 2rem;
+  margin: 1.2rem;
+  padding: 1rem;
 
   transition: 0.5s ease-in-out;
 
@@ -21,11 +21,20 @@ export const CardPost = styled(NavLink)`
     font-size: 1rem;
     color: ${(props) => props.theme.Text};
   }
+
+  @media (max-width: 720px) {
+    width: 90%;
+    margin: 0.5rem;
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
 `
 
 export const CardText = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
 
   span {
     font-size: 0.6;
@@ -37,5 +46,16 @@ export const CardText = styled.div`
     font-size: 1.3rem;
     width: 70%;
     margin-bottom: 1rem;
+  }
+
+  @media (max-width: 720px) {
+    width: 80%;
+
+    span {
+      font-size: 0.7rem;
+    }
+    h1 {
+      font-size: 0.8rem;
+    }
   }
 `

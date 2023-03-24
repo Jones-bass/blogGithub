@@ -14,4 +14,9 @@ export const LayoutContainer = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  @media (max-width: 720px) {
+    width: 100%;
+    height: 246px;
+  }
 `

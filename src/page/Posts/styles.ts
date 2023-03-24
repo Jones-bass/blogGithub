@@ -12,6 +12,14 @@ export const Container = styled.div`
     line-height: 1.5rem;
     text-align: justify;
   }
+
+  @media (max-width: 720px) {
+    p {
+      font-size: 0.7rem;
+      line-height: 1rem;
+    }
+  }
+
   h3 {
     color: ${(props) => props.theme.blue};
   }
@@ -19,5 +27,9 @@ export const Container = styled.div`
   img {
     margin-top: 2rem;
     max-width: 100%;
+  }
+
+  @media (max-width: 720px) {
+    font-size: 0.5rem;
   }
 `
