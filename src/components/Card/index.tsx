@@ -1,8 +1,9 @@
-import { CardPost, CardText } from './styles'
-import { PostCardProps } from '../../contexts/auth'
 import { formatDistanceToNow } from 'date-fns'
-import { formatText } from '../../utils/formatText'
 import { ptBR } from 'date-fns/locale'
+
+import { formatText } from '../../utils/formatText'
+import { PostCardProps } from '../../contexts/FetchContext'
+import { CardPost, CardText } from './styles'
 
 interface IPostCard {
   item: PostCardProps

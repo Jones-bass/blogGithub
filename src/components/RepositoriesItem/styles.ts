@@ -4,59 +4,28 @@ import git from '../../assets/git.png'
 
 export const ContainerList = styled(NavLink)`
   position: relative;
-  font-family: sans-serif;
+  display: block;
   text-decoration: none;
+
   padding: 0.5rem;
   color: ${(props) => props.theme.Text};
-
-  &::before {
-    content: '';
-    background-image: url(${git});
-    background-size: cover;
-
-    position: absolute;
-  }
-
-  &::before {
-    width: 5rem;
-    height: 5rem;
-    top: 35%;
-    right: 10%;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    height: 2rem;
-    top: 15%;
-    right: 5%;
-    border: 1px solid;
-  }
-
-  @media (max-width: 720px) {
-    &::before {
-      width: 2.5rem;
-      height: 2.5rem;
-      top: 45%;
-      right: 10%;
-    }
-
-    &::after {
-      height: 1rem;
-      top: 20%;
-      right: 5%;
-      border: 1px solid;
-    }
-  }
+  border-radius: 10px;
+  transition: transform 0.2s ease-in-out;
 `
 
 export const BoxCard = styled.div`
+  width: 100%;
+  border-radius: 10px;
+  padding: 1.5rem;
+  position: relative;
+
   width: 26rem;
-  height: 10rem;
+  height: 16rem;
   padding: 1.2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease-in-out;
   border: 1px solid rgba(255, 255, 255, 0.222);
 
-  transition: all ease 0.3s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -66,34 +35,59 @@ export const BoxCard = styled.div`
   }
 
   @media (max-width: 720px) {
-    width: 20em;
-    height: 6em;
     padding: 1rem;
+    height: auto;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  &::before {
+    content: '';
+    background-image: url(${git});
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 0;
+    right: 0;
+    opacity: 0.2;
+    border-radius: 10px 10px 0 0;
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 1.5vw, 2rem);
     font-weight: bold;
+    margin-bottom: 1rem;
+
     letter-spacing: 0.1em;
   }
 
-  @media (max-width: 720px) {
-    h1 {
-      font-size: 1rem;
+  div {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: justify;
+    z-index: 1;
+
+    span {
+      font-size: clamp(0.7rem, 0.9vw, 2rem);
+      line-height: 1.2rem;
+    }
+
+    p {
+      font-size: clamp(0.6rem, 0.9vw, 1rem);
     }
   }
 
-  span {
-    font-size: 0.7rem;
+  > span {
+    font-size: clamp(0.8rem, 1vw, 1rem);
     font-weight: 300;
-
-    &:nth-child(3) {
-      font-weight: 500;
-      margin-right: 0.2rem;
-    }
-
-    @media (max-width: 720px) {
-      font-size: 0.5rem;
-    }
+    text-align: right;
   }
 `

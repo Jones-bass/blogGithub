@@ -3,12 +3,20 @@ import styled from 'styled-components'
 export const FormContainer = styled.div`
   width: 65%;
   margin: auto;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-top: 2%;
+  margin-bottom: 2%;
+
+  h3 {
+    font-size: clamp(1rem, 1.2vw, 2rem);
+  }
+
+  p {
+    font-size: clamp(0.7rem, 1vw, 1rem);
+  }
 
   .containerText {
     display: flex;
-    margin-bottom: 1rem;
+    margin-bottom: 1%;
     align-items: center;
     justify-content: space-between;
     text-align: center;
@@ -17,26 +25,22 @@ export const FormContainer = styled.div`
 
   @media (max-width: 720px) {
     width: 80%;
-
-    h3 {
-      font-size: 1rem;
-    }
-    p {
-      font-size: 0.8rem;
-    }
   }
 `
 export const SearchFormContainer = styled.form`
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
 
+  margin: 1% 0% 5% 0%;
   input {
+    font-size: clamp(0.7rem, 1vw, 1rem);
+
     flex: 1;
     border-radius: 6px;
     border: 0;
     background: ${(props) => props.theme.input};
     color: ${(props) => props.theme.label};
-    padding: 1rem;
+    padding: 2%;
 
     &::placeholder {
       color: ${(props) => props.theme.label};
@@ -44,15 +48,17 @@ export const SearchFormContainer = styled.form`
   }
 
   button {
+    font-size: clamp(0.7rem, 1vw, 1rem);
+
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
 
     background: ${(props) => props.theme.input};
     color: ${(props) => props.theme.Text};
 
     border: 0;
-    padding: 1rem;
+    padding: 2%;
     font-weight: bold;
     border-radius: 6px;
     cursor: pointer;
@@ -65,11 +71,6 @@ export const SearchFormContainer = styled.form`
     &:not(:disabled):hover {
       background: transparent;
       color: ${(props) => props.theme.blue};
-    }
-
-    @media (max-width: 720px) {
-      gap: 0rem;
-      width: 5rem;
     }
   }
 `

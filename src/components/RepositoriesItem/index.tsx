@@ -6,6 +6,8 @@ export interface RepositoryItemPropos {
   name: string
   language: string
   html_url: string
+  description: string
+
   created_at: string
 }
 
@@ -27,8 +29,9 @@ export function RepositoryItem({ repository }: RepositoryProps) {
 
         <div>
           <p>{repository.language}</p>
-          <span>{formattedDate}</span>
+          <span>{repository.description}</span>
         </div>
+        <span>{formattedDate}</span>
       </BoxCard>
     </ContainerList>
   )

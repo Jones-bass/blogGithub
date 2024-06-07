@@ -11,12 +11,11 @@ export const Main = styled.main`
 export const Container = styled.div<ContainerProps>`
   display: flex;
   width: 65%;
-  height: 200px;
 
   margin: auto;
   margin-top: -70px;
 
-  padding: 35px;
+  padding: 30px;
 
   align-items: flex-start;
 
@@ -25,31 +24,27 @@ export const Container = styled.div<ContainerProps>`
   background-color: ${(props) => props.theme.profile};
 
   @media (max-width: 720px) {
-    padding: 35px 15px 0px 0px;
-    margin-top: -2rem;
+    padding: 15px;
     width: 80%;
-    height: 150px;
+    height: auto;
   }
 
   > img {
-    width: 20%;
-    height: 100%;
+    max-width: 100px;
+    object-fit: cover;
+    margin-right: 1rem;
 
     border-radius: 8px;
 
     @media (max-width: 720px) {
-      width: 20%;
-      height: 40%;
-      margin-top: 1rem;
-      margin-left: 0.5rem;
+      max-width: 90px;
     }
   }
 
   ${({ variant }) =>
     variant !== 'primary' &&
     css`
-      padding: 50px 15px 15px 20px;
-      .div {
+      .header {
         margin-top: 0.5rem;
       }
       img {
@@ -59,7 +54,6 @@ export const Container = styled.div<ContainerProps>`
 `
 
 export const ContainerText = styled.div`
-  margin: 0px 0px 0px 20px;
   width: 100%;
 
   h1 {
@@ -71,77 +65,75 @@ export const ContainerText = styled.div`
   }
 
   p {
-    margin-top: 10px;
-
-    font-weight: 400;
-    font-size: clamp(0.5rem, 1vw, 1rem);
+    text-align: justify;
+    font-size: clamp(0.6rem, 1vw, 1rem);
 
     color: ${(props) => props.theme.Text};
 
-    margin-bottom: 25px;
+    margin-bottom: 14px;
   }
 
-  .div {
-    width: 59%;
-    position: absolute;
-    top: 240px;
+  .link {
     display: flex;
     justify-content: space-between;
-    color: ${(props) => props.theme.blue};
+    text-align: center;
+    align-items: center;
+    font-size: clamp(0.5rem, 1vw, 1rem);
+  }
 
-    > a {
-      color: ${(props) => props.theme.blue};
-    }
-
-    span {
-      display: flex;
-      cursor: pointer;
-
-      font-size: clamp(0.5rem, 1vw, 1rem);
-      align-items: center;
-      text-align: center;
-      color: ${(props) => props.theme.blue};
-    }
-
-    @media (max-width: 720px) {
-      margin-top: -1rem;
-      width: 68%;
+  @media (max-width: 720px) {
+    .header {
+      width: 100%;
     }
   }
 `
 
 export const IconContainer = styled.div`
-  width: 60%;
+  width: 100%;
   display: flex;
-  gap: 0.8rem;
+  cursor: pointer;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+
+  transition: transform 0.2s, box-shadow 0.2s;
 
   @media (max-width: 720px) {
-    width: 100%;
-    gap: 0.5rem;
+    gap: 0.2rem;
+    text-align: center;
+  }
+  > * {
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    :hover {
+      transform: scale(1.05);
+      color: ${(props) => props.theme.blue};
+    }
   }
 `
 export const IconContent = styled.div`
-  width: 100%;
-  height: 100%;
   display: flex;
-  gap: 0.5rem;
+  gap: 0.3rem;
   align-items: center;
+  text-align: center;
+  font-size: clamp(0.6rem, 1vw, 1rem);
+
   color: ${(props) => props.theme.title};
+
+  @media (max-width: 720px) {
+    font-size: 0.56rem;
+  }
 
   a {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.3rem;
     align-items: center;
     color: ${(props) => props.theme.title};
-  }
+    transition: transform 0.2s, color 0.2s;
 
-  @media (max-width: 720px) {
-    display: flex;
-    gap: 0.2rem;
-    font-size: 0.72rem;
-
-    a {
-      gap: 0.2rem;
+    &:hover {
+      transform: scale(1.05);
+      color: ${(props) => props.theme.blue};
     }
   }
 `

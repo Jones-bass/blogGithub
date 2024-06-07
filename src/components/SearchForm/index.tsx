@@ -44,7 +44,7 @@ export function SearchForm() {
         />
 
         <button type="submit" disabled={isSubmitting}>
-          <BsSearch size={20} />
+          <BsSearch />
           Buscar
         </button>
       </SearchFormContainer>

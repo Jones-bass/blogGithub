@@ -21,7 +21,7 @@ a {
 }
 
 body, input, textarea, button {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   color: ${(props) => props.theme.title};
 }

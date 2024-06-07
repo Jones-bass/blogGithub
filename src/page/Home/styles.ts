@@ -13,10 +13,6 @@ export const ContainerPost = styled.div`
   margin: auto;
 
   @media (max-width: 720px) {
-    width: 100%;
-
-    p {
-      font-size: 0.8rem;
-    }
+    width: 82%;
   }
 `
